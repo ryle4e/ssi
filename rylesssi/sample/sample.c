@@ -8,14 +8,16 @@
 #include <sys/wait.h>
 #include <signal.h>
 
+#define MAX_ARGS 256
+
 typedef struct background_job {
 	pid_t pid;
 	char cmd[1024];
 	struct background_job *next;
 } background_job;
 
-background_job *background_head = NULL
-volatile sig_atomic_t running = 0; //if there is a foreground process running
+background_job *background_head = NULL;
+volatile sig_atomic_t running = 0; //turns into a positive number if there is a foreground process running
 
 
 
@@ -25,6 +27,17 @@ void add_bg_job(pid_t pid, char *cmd) {
 	strcpy(new_bg->cmd, cmd);
 	new_bg->next = background_head;
 	background_head = new_bg;
+}
+
+void print_bglist() {
+	background_job *cur = background_head;
+	int count = 0;
+	while (cur != NULL) {
+		printf("%d: %s\n", cur->pid, cur->cmd);
+		count++;
+		cur = cur->next;
+	}
+	printf("Total background jobs: %d\n", count);
 }
 
 void sigint_handler(int signal) {
@@ -67,15 +80,68 @@ int main()
 			add_history(reply);
 		}
 
-		if (!strcmp(reply, "bye"))
+		char *args[MAX_ARGS];
+		int arg_count = 0;
+		char *token = strtok(reply, " \t\n");
+
+		while (token != NULL && arg_count < MAX_ARGS - 1) {
+			args[arg_count++] = token;
+			token = strtok(NULL, " \t\n");
+		}
+		args[arg_count] = NULL; //null-terminated for execvp
+
+		if (arg_count == 0) {
+			free(reply);
+			continue;
+		}
+
+		if (strcmp(args[0], "cd") == 0) {
+			char *destination = args[1];
+			if (destination == NULL || strcmp(destination, "~") == 0) {
+				destination = getenv("$HOME");
+			}
+			if (chdir(destination) != 0) {
+				perror("cd");
+			}
+		}
+		else if (strcmp(args[0], "bglist") == 0) {
+			print_bglist();
+		}
+		else {
+			int bg = 0;
+			if (strcmp(args[0], "bg") == 0) {
+				bg = 1;
+			}
+			pid_t pid = fork();
+			if (pid < 0) {
+				perror("fork() failed");
+			}
+			// child process
+			else if (pid == 0) {
+				if (bg) {
+					setpgid(0, 0);
+				}
+				else {
+					signal(SIGINT, SIG_DFL);
+				}
+				if (execvp(args[1], &args[1]) < 0) {
+					printf("%p: No such file or directory\n", args[1]);
+					exit(1);
+				}					
+			}
+			// parent process
+			else {
+				running = 1;
+				waitpid(pid, NULL, 0);
+				running = 0;
+			}	
+			
+		}
+
+		if (!strcmp(reply, "^D"))
 		{
 			bailout = 1;
 		}
-		else
-		{
-			printf("\nYou said: %s\n\n", reply);
-		}
-
 		free(reply);
 	}
 	printf("Bye Bye\n");
