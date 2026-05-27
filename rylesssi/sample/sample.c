@@ -29,6 +29,16 @@ void add_bg_job(pid_t pid, char *cmd) {
 	background_head = new_bg;
 }
 
+void check_bg() {
+	pid_t pid;
+	int status;
+
+	while ((pid = waitpid(-1, &status, WNOHANG)) > 0) {
+			background_job *cur = background_head;
+			background_job *prev = NULL;
+	}
+}
+
 void print_bglist() {
 	background_job *cur = background_head;
 	int count = 0;
