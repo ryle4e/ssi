@@ -32,10 +32,27 @@ void add_bg_job(pid_t pid, char *cmd) {
 void check_bg() {
 	pid_t pid;
 	int status;
-
+	// find exited child processes to clear them off the background list
 	while ((pid = waitpid(-1, &status, WNOHANG)) > 0) {
-			background_job *cur = background_head;
-			background_job *prev = NULL;
+		// start iterating through the linked list to find the address of the terminated background process
+		background_job *cur = background_head; 
+		background_job *prev = NULL;
+
+		while (cur != NULL) {
+			if (cur->pid == pid) { // make the pointer skip this node, removing the already terminated process
+				if (prev == NULL) {
+					background_head = cur->next;
+				}	
+				else {
+					prev->next = cur->next;
+				}
+				printf("%d: %s has terminated.\n", cur->pid, cur->cmd);
+				free(cur); // free the node from memory
+				break;
+			}
+			prev = cur;
+			cur = cur->next;
+		}
 	}
 }
 
@@ -74,6 +91,7 @@ int main()
 
 	while (!bailout)
 	{
+		check_bg();
 
 		getcwd(cwd,sizeof(cwd));
 
@@ -108,7 +126,7 @@ int main()
 		if (strcmp(args[0], "cd") == 0) {
 			char *destination = args[1];
 			if (destination == NULL || strcmp(destination, "~") == 0) {
-				destination = getenv("$HOME");
+				destination = getenv("HOME"); // if no arguement return home
 			}
 			if (chdir(destination) != 0) {
 				perror("cd");
