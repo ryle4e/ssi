@@ -110,14 +110,16 @@ int main()
 
 		char *args[MAX_ARGS];
 		int arg_count = 0;
-		char *token = strtok(reply, " \t\n");
+		char *token = strtok(reply, " \t\n\r");
+		
+		// tokenize input 
+                while (token != NULL && arg_count < MAX_ARGS - 1) {
+                        args[arg_count++] = token;
+                        token = strtok(NULL, " \t\n\r");
+                }
+                args[arg_count] = NULL; //null-terminated for execvp
 
-		while (token != NULL && arg_count < MAX_ARGS - 1) {
-			args[arg_count++] = token;
-			token = strtok(NULL, " \t\n");
-		}
-		args[arg_count] = NULL; //null-terminated for execvp
-
+		// ignore empty input
 		if (arg_count == 0) {
 			free(reply);
 			continue;
@@ -137,41 +139,64 @@ int main()
 		}
 		else {
 			int bg = 0;
+			int bg_start_index = 0;
+			
+			// check if its a background process
 			if (strcmp(args[0], "bg") == 0) {
 				bg = 1;
+				bg_start_index = 1;
 			}
+
 			pid_t pid = fork();
+
 			if (pid < 0) {
 				perror("fork() failed");
 			}
+
 			// child process
 			else if (pid == 0) {
 				if (bg) {
+					// im assumming background processes arent affected by ^C
 					setpgid(0, 0);
 				}
 				else {
+					// restore ^C behavior if its foreground
 					signal(SIGINT, SIG_DFL);
 				}
-				if (execvp(args[1], &args[1]) < 0) {
-					printf("%p: No such file or directory\n", args[1]);
+
+				// if bg is stated, skip the first argument 
+				if (execvp(args[bg_start_index], &args[bg_start_index]) < 0) {
+					printf("%s: No such file or directory\n", args[bg_start_index]);
 					exit(1);
 				}					
 			}
 			// parent process
 			else {
-				running = 1;
-				waitpid(pid, NULL, 0);
-				running = 0;
-			}	
-			
+				if (bg) {
+					char full_cmd[1024] = "";
+					for (int i = bg_start_index; args[i] != NULL; i++) {
+						strcat(full_cmd, args[i]);
+							if (args[i+1] != NULL) {
+								strcat(full_cmd, " ");
+							}
+					}
+					add_bg_job(pid, full_cmd);
+				}
+				else {
+					running = 1; // tell signal handler a foreground process is running
+					waitpid(pid, NULL, 0); // wait for fg process
+					running = 0; // fg process finished
+				}	
+			}
 		}
-
-		if (!strcmp(reply, "^D"))
+		
+		// ^D or EOF
+		if (reply == NULL)
 		{
 			bailout = 1;
 		}
 		free(reply);
 	}
-	printf("Bye Bye\n");
+	printf("\n");
 	return 0;
 }
