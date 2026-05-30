@@ -68,7 +68,10 @@ void print_bglist() {
 }
 
 void sigint_handler(int signal) {
-	if (!running) {
+	if (running > 0) {
+		kill(running, SIGINT);
+	}
+	else {
 		printf("\n");
 		rl_on_new_line();
 		rl_replace_line("", 0);
@@ -127,9 +130,15 @@ int main()
 
 		if (strcmp(args[0], "cd") == 0) {
 			char *destination = args[1];
+			char extra_path[1024];
 			if (destination == NULL || strcmp(destination, "~") == 0) {
 				destination = getenv("HOME"); // if no arguement return home
 			}
+			else if (destination[0] == '~') {
+				snprintf(extra_path, sizeof(extra_path), "%s%s", getenv("HOME"), destination + 1);
+				destination = extra_path;
+			}
+
 			if (chdir(destination) != 0) {
 				perror("cd");
 			}
