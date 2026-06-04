@@ -8,32 +8,31 @@
 #include <sys/wait.h>
 #include <signal.h>
 
-#define MAX_ARGS 256
-
+// using linked list to keep track of back ground processes precisely and effectively without having to allocate memory
 typedef struct background_job {
 	pid_t pid;
-	char cmd[1024];
-	struct background_job *next;
+	char cmd[2000];
+	struct background_job *next; // points to the next background job
 } background_job;
 
 background_job *background_head = NULL;
-volatile sig_atomic_t running = 0; //turns into a positive number if there is a foreground process running
+volatile pid_t running = 0; // for keeping track of foreground process being executed so when ctrl c is entered we know if there is a process to stop
 
-
-
+// when a background process is created and executed, this function is called to at it to a node part of the linked list, including its pid and cmd. it is dynamically allocated in memory and will be freed when it terminates 
 void add_bg_job(pid_t pid, char *cmd) {
 	background_job *new_bg = malloc(sizeof(background_job));
 	new_bg->pid = pid;
 	strcpy(new_bg->cmd, cmd);
-	new_bg->next = background_head;
+	new_bg->next = background_head; // LIFO;; newest process is the head. older ones are further back
 	background_head = new_bg;
 }
 
+// check the status of background processes to find zombie processes
 void check_bg() {
 	pid_t pid;
 	int status;
-	// find exited child processes to clear them off the background list
-	while ((pid = waitpid(-1, &status, WNOHANG)) > 0) {
+	// find exited child processes to clear them off the background list, if there is none then do not wait
+	while ((pid = waitpid(-1, &status, WNOHANG)) > 0) { // waitpid returns dead childs pid
 		// start iterating through the linked list to find the address of the terminated background process
 		background_job *cur = background_head; 
 		background_job *prev = NULL;
@@ -50,16 +49,18 @@ void check_bg() {
 				free(cur); // free the node from memory
 				break;
 			}
+			// move to the next node until we reach NULL
 			prev = cur;
 			cur = cur->next;
 		}
 	}
 }
 
+// built-in command: bglist
 void print_bglist() {
 	background_job *cur = background_head;
-	int count = 0;
-	while (cur != NULL) {
+	int count = 0; // initialize a counter that goes up by one every time we loop through a process node
+	while (cur != NULL) { // check every node in the linked list, if NULL then we reached the end
 		printf("%d: %s\n", cur->pid, cur->cmd);
 		count++;
 		cur = cur->next;
@@ -67,25 +68,28 @@ void print_bglist() {
 	printf("Total background jobs: %d\n", count);
 }
 
+// ctr c handler
 void sigint_handler(int signal) {
 	if (running > 0) {
-		kill(running, SIGINT);
+		kill(running, SIGINT); // kills running foreground process
 	}
 	else {
-		printf("\n");
-		rl_on_new_line();
-		rl_replace_line("", 0);
-		rl_redisplay();
+		printf("\n"); // if there is no fg process, create newline
+		rl_on_new_line(); // move to new prompt line
+		rl_replace_line("", 0); // clears currently typed out command
+		rl_redisplay(); // prints out new prompt on newline as we move down
 	}
 }
 
 
 int main()
-{
+{	
+	signal(SIGINT, sigint_handler); // calls signint_handler when ^C is received
+
 	char* username;
-	char hostname[256];
-	char cwd[1024];
-	char buffer[2048];
+	char hostname[500];
+	char cwd[2000];
+	char buffer[3000];
 
 	int bailout = 0;
 	
@@ -98,29 +102,41 @@ int main()
 
 		getcwd(cwd,sizeof(cwd));
 
-		snprintf(buffer, sizeof(buffer), "%s@%s: %s > ", username, hostname, cwd);
+		snprintf(buffer, sizeof(buffer), "%s@%s: %s > ", username, hostname, cwd); // prompt
 
-		char* reply = readline(buffer);
-
+		char* reply = readline(buffer); // takes user input
+		
+		// if nothing is entered, jumps to new input line and prints out the prompt again
 		if (reply == NULL) {
 			printf("\n");
 			break;
 		}
 		
+		// add input to history
 		if (strlen(reply) > 0) {
 			add_history(reply);
 		}
-
-		char *args[MAX_ARGS];
-		int arg_count = 0;
-		char *token = strtok(reply, " \t\n\r");
 		
+
+		char arg_count = 0;
+		size_t capacity = 10; // big guess for most command lines number of arguments :D
+		char **args = (char**) malloc(capacity * sizeof(char*)); // allocate memory for tokenized input arguments
+
+		char *token = strtok(reply, " \t\n\t"); // first argument
+
 		// tokenize input 
-                while (token != NULL && arg_count < MAX_ARGS - 1) {
-                        args[arg_count++] = token;
-                        token = strtok(NULL, " \t\n\r");
+        	    while (token != NULL) {
+     	            	args[arg_count] = token; // keeps adding arguments to the array
+			arg_count++;
+			
+			// if the amount of arguments is bigger than 8, reallocate the memory for larger input
+			if (arg_count >= capacity - 1) {
+				capacity = capacity * 2;
+				args = realloc(args, capacity * sizeof(char*));
+			}
+                        token = strtok(NULL, " \t\n\r");; // continue tokenizing
                 }
-                args[arg_count] = NULL; //null-terminated for execvp
+                args[arg_count] = NULL; //null-terminated for execvp when we reach the end of the arguments array
 
 		// ignore empty input
 		if (arg_count == 0) {
@@ -155,7 +171,8 @@ int main()
 				bg = 1;
 				bg_start_index = 1;
 			}
-
+			
+			// fork a child so command can be executed by a child process while preserving parent's memory 
 			pid_t pid = fork();
 
 			if (pid < 0) {
@@ -169,7 +186,7 @@ int main()
 					setpgid(0, 0);
 				}
 				else {
-					// restore ^C behavior if its foreground
+					// restore ^C behavior if its foreground. when in the child's process the pid is set to 0, therefore if it inherits signal(SIGINT, signal_handler) and then it receives ctrl c then it wont kill() its process as pid is set to 0.
 					signal(SIGINT, SIG_DFL);
 				}
 
@@ -182,7 +199,15 @@ int main()
 			// parent process
 			else {
 				if (bg) {
-					char full_cmd[1024] = "";
+					char *full_cmd = malloc(capacity * sizeof(char));
+
+					if (full_cmd == NULL) {
+						perror("malloc failed");
+						exit(1);
+					}
+
+					full_cmd[0] = '\0'; // initialize it as an empty string for strcat
+
 					for (int i = bg_start_index; args[i] != NULL; i++) {
 						strcat(full_cmd, args[i]);
 							if (args[i+1] != NULL) {
@@ -192,7 +217,7 @@ int main()
 					add_bg_job(pid, full_cmd);
 				}
 				else {
-					running = 1; // tell signal handler a foreground process is running
+					running = pid; // assign the pid of the fg running process
 					waitpid(pid, NULL, 0); // wait for fg process
 					running = 0; // fg process finished
 				}	

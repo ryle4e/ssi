@@ -1,36 +1,36 @@
-2026/05/29 17:08:42 [testMake] Testing Makefile exists and can compile ssi, 0.25
-2026/05/29 17:08:42 [COMMAND]: /usr/bin/make -C . clean
-2026/05/29 17:08:42 make: Entering directory '/home/ryleengo/p1/rylesssi/sample'
+2026/05/30 13:28:56 [testMake] Testing Makefile exists and can compile ssi, 0.25
+2026/05/30 13:28:56 [COMMAND]: /usr/bin/make -C . clean
+2026/05/30 13:28:56 make: Entering directory '/home/ryleengo/p1/rylesssi/ssi'
 rm -f *.o
 rm -f ssi
 rm -f inf
 rm -f args
-make: Leaving directory '/home/ryleengo/p1/rylesssi/sample'
-2026/05/29 17:08:42 [COMMAND]: /usr/bin/make -C .
-2026/05/29 17:08:42 make: Entering directory '/home/ryleengo/p1/rylesssi/sample'
+make: Leaving directory '/home/ryleengo/p1/rylesssi/ssi'
+2026/05/30 13:28:56 [COMMAND]: /usr/bin/make -C .
+2026/05/30 13:28:56 make: Entering directory '/home/ryleengo/p1/rylesssi/ssi'
 gcc ssi.c -lreadline -lhistory -ltermcap -o ssi
 gcc inf.c -o inf
 gcc args.c -o args
-make: Leaving directory '/home/ryleengo/p1/rylesssi/sample'
-2026/05/29 17:08:42 ==== Test name: testMake, Mark received: 0.25 ====
+make: Leaving directory '/home/ryleengo/p1/rylesssi/ssi'
+2026/05/30 13:28:56 ==== Test name: testMake, Mark received: 0.25 ====
 
-2026/05/29 17:08:43 [testREADME] Testing README file exists, 0.25
-2026/05/29 17:08:43 ==== Test name: testREADME, Mark received: 0.00 ====
+2026/05/30 13:28:57 [testREADME] Testing README file exists, 0.25
+2026/05/30 13:28:57 ==== Test name: testREADME, Mark received: 0.00 ====
 Message: README file not found
 
-2026/05/29 17:08:44 [testExecSSI] Testing your ssi can be executed without additional parameter, shows the correct prompt, and exit on EOF, 0.50
-2026/05/29 17:08:44 [COMMAND]: /home/ryleengo/p1/rylesssi/sample/ssi
-2026/05/29 17:08:44 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+2026/05/30 13:28:58 [testExecSSI] Testing your ssi can be executed without additional parameter, shows the correct prompt, and exit on EOF, 0.50
+2026/05/30 13:28:58 [COMMAND]: /home/ryleengo/p1/rylesssi/ssi/ssi
+2026/05/30 13:28:58 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
 
 
-2026/05/29 17:08:44 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.50]): 
-2026/05/29 17:09:31 Mark received: y
-2026/05/29 17:09:31 ==== Test name: testExecSSI, Mark received: 0.50 ====
+2026/05/30 13:28:58 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.50]): 
+2026/05/30 13:29:09 Mark received: y
+2026/05/30 13:29:09 ==== Test name: testExecSSI, Mark received: 0.50 ====
 
-2026/05/29 17:09:32 [testExec] Testing exec commands without parameters, 1.00
-2026/05/29 17:09:32 [COMMAND]: /home/ryleengo/p1/rylesssi/sample/ssi
-2026/05/29 17:09:32 Sending command to SSI: ls  
-2026/05/29 17:09:32 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > ls  
+2026/05/30 13:29:10 [testExec] Testing exec commands without parameters, 1.00
+2026/05/30 13:29:10 [COMMAND]: /home/ryleengo/p1/rylesssi/ssi/ssi
+2026/05/30 13:29:10 Sending command to SSI: ls  
+2026/05/30 13:29:10 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > ls  
 Makefile
 args
 args.c
@@ -41,399 +41,413 @@ self-marking.log
 ssi
 ssi.c
 temp
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
 
 
-2026/05/29 17:09:32 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 17:09:35 Mark received: y
-2026/05/29 17:09:35 [COMMAND]: /home/ryleengo/p1/rylesssi/sample/ssi
-2026/05/29 17:09:35 Sending command to SSI: whoami  
-2026/05/29 17:09:35 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > whoami  
+2026/05/30 13:29:10 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:29:10 Mark received: y
+2026/05/30 13:29:10 [COMMAND]: /home/ryleengo/p1/rylesssi/ssi/ssi
+2026/05/30 13:29:10 Sending command to SSI: whoami  
+2026/05/30 13:29:10 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > whoami  
 ryleengo
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
 
 
-2026/05/29 17:09:35 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 17:09:38 Mark received: y
-2026/05/29 17:09:38 [COMMAND]: /home/ryleengo/p1/rylesssi/sample/ssi
-2026/05/29 17:09:38 Sending command to SSI: uname  
-2026/05/29 17:09:38 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > uname  
+2026/05/30 13:29:10 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:29:10 Mark received: y
+2026/05/30 13:29:10 [COMMAND]: /home/ryleengo/p1/rylesssi/ssi/ssi
+2026/05/30 13:29:10 Sending command to SSI: uname  
+2026/05/30 13:29:10 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > uname  
 Linux
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
 
 
-2026/05/29 17:09:38 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 17:09:40 Mark received: y
-2026/05/29 17:09:40 [COMMAND]: /home/ryleengo/p1/rylesssi/sample/ssi
-2026/05/29 17:09:40 Sending command to SSI: date  
-2026/05/29 17:09:40 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > date  
-Fri May 29 17:09:40 PDT 2026
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+2026/05/30 13:29:10 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:29:11 Mark received: y
+2026/05/30 13:29:11 [COMMAND]: /home/ryleengo/p1/rylesssi/ssi/ssi
+2026/05/30 13:29:11 Sending command to SSI: date  
+2026/05/30 13:29:11 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > date  
+Sat May 30 13:29:11 PDT 2026
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
 
 
-2026/05/29 17:09:40 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 17:09:40 Mark received: y
-2026/05/29 17:09:40 [COMMAND]: /home/ryleengo/p1/rylesssi/sample/ssi
-2026/05/29 17:09:40 Sending command to SSI: hostname  
-2026/05/29 17:09:40 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > hostname  
-linux200
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+2026/05/30 13:29:11 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:29:11 Mark received: y
+2026/05/30 13:29:11 [COMMAND]: /home/ryleengo/p1/rylesssi/ssi/ssi
+2026/05/30 13:29:11 Sending command to SSI: hostname  
+2026/05/30 13:29:11 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > hostname  
+linux201
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
 
 
-2026/05/29 17:09:40 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 17:09:41 Mark received: y
-2026/05/29 17:09:41 ==== Test name: testExec, Mark received: 1.00 ====
+2026/05/30 13:29:11 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:29:11 Mark received: y
+2026/05/30 13:29:11 ==== Test name: testExec, Mark received: 1.00 ====
 
-2026/05/29 17:09:42 [testExecWithParameters] Testing exec with parameters, 1.00
-2026/05/29 17:09:42 Sending command to SSI: 
+2026/05/30 13:29:12 [testExecWithParameters] Testing exec with parameters, 1.00
+2026/05/30 13:29:12 Sending command to SSI: 
 ls temp
 
-2026/05/29 17:09:42 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > ls temp
+2026/05/30 13:29:12 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > ls temp
 A
 B
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
 
 
-2026/05/29 17:09:42 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 17:09:44 Mark received: y
-2026/05/29 17:09:44 Sending command to SSI: 
+2026/05/30 13:29:12 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:29:14 Mark received: y
+2026/05/30 13:29:14 Sending command to SSI: 
 ls -alh
 
-2026/05/29 17:09:44 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > ls -alh
+2026/05/30 13:29:14 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > ls -alh
 total 2.1M
-drwxrwxr-x 3 ryleengo ryleengo 4.0K May 29 17:08 .
-drwxrwxr-x 3 ryleengo ryleengo 4.0K May 25 23:25 ..
+drwxrwxr-x 3 ryleengo ryleengo 4.0K May 30 13:28 .
+drwxrwxr-x 3 ryleengo ryleengo 4.0K May 29 17:14 ..
 -rw-rw-r-- 1 ryleengo ryleengo  196 May 29 16:10 Makefile
--rwxrwxr-x 1 ryleengo ryleengo  17K May 29 17:08 args
+-rwxrwxr-x 1 ryleengo ryleengo  17K May 30 13:28 args
 -rw-rw-r-- 1 ryleengo ryleengo  402 May 25 21:51 args.c
--rwxrwxr-x 1 ryleengo ryleengo  17K May 29 17:08 inf
+-rwxrwxr-x 1 ryleengo ryleengo  17K May 30 13:28 inf
 -rw-rw-r-- 1 ryleengo ryleengo  322 May 25 21:51 inf.c
 -rwxrwxr-x 1 ryleengo ryleengo 2.0M May 29 16:07 marking-linux-amd64
--rw-rw-r-- 1 ryleengo ryleengo  19K May 29 17:09 self-marking.log
--rwxrwxr-x 1 ryleengo ryleengo  18K May 29 17:08 ssi
--rw-rw-r-- 1 ryleengo ryleengo 4.5K May 29 17:06 ssi.c
+-rw-rw-r-- 1 ryleengo ryleengo  19K May 30 13:29 self-marking.log
+-rwxrwxr-x 1 ryleengo ryleengo  18K May 30 13:28 ssi
+-rw-rw-r-- 1 ryleengo ryleengo 4.8K May 30 13:26 ssi.c
 drwxr-xr-x 4 ryleengo ryleengo 4.0K May 29 16:16 temp
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
 
 
-2026/05/29 17:09:44 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 17:09:46 Mark received: y
-2026/05/29 17:09:46 Sending command to SSI: 
+2026/05/30 13:29:14 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:29:15 Mark received: y
+2026/05/30 13:29:15 Sending command to SSI: 
 ls temp/A/C
 
-2026/05/29 17:09:46 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > ls temp/A/C
+2026/05/30 13:29:15 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > ls temp/A/C
 AC.txt
 D
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
 
 
-2026/05/29 17:09:46 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 17:09:47 Mark received: y
-2026/05/29 17:09:47 Sending command to SSI: 
+2026/05/30 13:29:15 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:29:15 Mark received: y
+2026/05/30 13:29:15 Sending command to SSI: 
 cat temp/A/C/AC.txt
 
-2026/05/29 17:09:47 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > cat temp/A/C/AC.txt
+2026/05/30 13:29:15 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > cat temp/A/C/AC.txt
 This is the content for AC.txt
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
 
 
-2026/05/29 17:09:47 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 17:09:48 Mark received: y
-2026/05/29 17:09:48 Sending command to SSI: 
+2026/05/30 13:29:15 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:29:16 Mark received: y
+2026/05/30 13:29:16 Sending command to SSI: 
 echo hello
 
-2026/05/29 17:09:48 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > echo hello
+2026/05/30 13:29:16 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > echo hello
 hello
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
 
 
-2026/05/29 17:09:48 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 17:09:50 Mark received: y
-2026/05/29 17:09:50 ==== Test name: testExecWithParameters, Mark received: 1.00 ====
+2026/05/30 13:29:16 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:29:17 Mark received: y
+2026/05/30 13:29:17 ==== Test name: testExecWithParameters, Mark received: 1.00 ====
 
-2026/05/29 17:09:51 [testNotExistCommand] Testing non-existent command, 1.00
-2026/05/29 17:09:51 Sending command to SSI: 
+2026/05/30 13:29:18 [testNotExistCommand] Testing non-existent command, 1.00
+2026/05/30 13:29:18 Sending command to SSI: 
 nonexistent 
 
 
-2026/05/29 17:09:51 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > nonexistent 
+2026/05/30 13:29:18 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > nonexistent 
 nonexistent: No such file or directory
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
 
 
-2026/05/29 17:09:51 Do you want to award mark for this test? (y/n or input a floating number between [0, 1.00]): 
-2026/05/29 17:09:56 Mark received: y
-2026/05/29 17:09:56 ==== Test name: testNotExistCommand, Mark received: 1.00 ====
+2026/05/30 13:29:18 Do you want to award mark for this test? (y/n or input a floating number between [0, 1.00]): 
+2026/05/30 13:29:22 Mark received: y
+2026/05/30 13:29:22 ==== Test name: testNotExistCommand, Mark received: 1.00 ====
 
-2026/05/29 17:09:57 [testExecLongRunning] Testing exec with long running command, 1.00
-2026/05/29 17:09:57 [COMMAND]: ./ssi
-2026/05/29 17:09:57 Waiting 5 seconds before sending Ctrl-C signal
-2026/05/29 17:10:02 Sending interrupt signal Ctrl-C
-2026/05/29 17:10:02 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > ping -c 10 1.1.1.1
+2026/05/30 13:29:23 [testExecLongRunning] Testing exec with long running command, 1.00
+2026/05/30 13:29:23 [COMMAND]: ./ssi
+2026/05/30 13:29:23 Waiting 5 seconds before sending Ctrl-C signal
+2026/05/30 13:29:28 Sending interrupt signal Ctrl-C
+2026/05/30 13:29:28 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > ping -c 10 1.1.1.1
 PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
-64 bytes from 1.1.1.1: icmp_seq=1 ttl=53 time=3.28 ms
-64 bytes from 1.1.1.1: icmp_seq=2 ttl=53 time=3.16 ms
-64 bytes from 1.1.1.1: icmp_seq=3 ttl=53 time=3.33 ms
-64 bytes from 1.1.1.1: icmp_seq=4 ttl=53 time=3.36 ms
-64 bytes from 1.1.1.1: icmp_seq=5 ttl=53 time=3.27 ms
-2026/05/29 17:10:02 64 bytes from 1.1.1.1: icmp_seq=6 ttl=53 time=3.42 ms
-2026/05/29 17:10:03 64 bytes from 1.1.1.1: icmp_seq=7 ttl=53 time=3.19 ms
-2026/05/29 17:10:04 64 bytes from 1.1.1.1: icmp_seq=8 ttl=53 time=3.20 ms
-2026/05/29 17:10:05 64 bytes from 1.1.1.1: icmp_seq=9 ttl=53 time=4.28 ms
-2026/05/29 17:10:06 64 bytes from 1.1.1.1: icmp_seq=10 ttl=53 time=4.85 ms
-2026/05/29 17:10:06 
-2026/05/29 17:10:06 --- 1.1.1.1 ping statistics ---
-10 packets transmitted, 10 received, 0% packet loss, time 9014ms
-rtt min/avg/max/mdev = 3.159/3.532/4.846/0.535 ms
-2026/05/29 17:10:06 [testExecLongRunning] ssi failed to execute: signal: interrupt
-2026/05/29 17:10:06 ==== Test name: testExecLongRunning, Mark received: 0.00 ====
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=53 time=3.18 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=53 time=3.24 ms
+64 bytes from 1.1.1.1: icmp_seq=3 ttl=53 time=3.25 ms
+64 bytes from 1.1.1.1: icmp_seq=4 ttl=53 time=3.29 ms
+64 bytes from 1.1.1.1: icmp_seq=5 ttl=53 time=3.19 ms
+2026/05/30 13:29:28 
+--- 1.1.1.1 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 3.183/3.230/3.290/0.039 ms
+2026/05/30 13:29:28 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
+2026/05/30 13:29:28 
 
-2026/05/29 17:10:07 [testPwd] Testing printing current working directory, 1.00
-2026/05/29 17:10:07 Sending command to SSI: 
+2026/05/30 13:29:28 Do you want to award mark for this test? (y/n or input a floating number between [0, 1.00]): 
+2026/05/30 13:33:18 Mark received: 
+2026/05/30 13:33:18 ==== Test name: testExecLongRunning, Mark received: 0.00 ====
+
+2026/05/30 13:33:19 [testPwd] Testing printing current working directory, 1.00
+2026/05/30 13:33:19 Sending command to SSI: 
 pwd 
 
-2026/05/29 17:10:07 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > pwd 
-/home/ryleengo/p1/rylesssi/sample
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+2026/05/30 13:33:19 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > pwd 
+/home/ryleengo/p1/rylesssi/ssi
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
 
 
-2026/05/29 17:10:07 pwd should output: 
-/home/ryleengo/p1/rylesssi/sample
-2026/05/29 17:10:07 Do you want to award mark for this test? (y/n or input a floating number between [0, 1.00]): 
-2026/05/29 16:25:21 Mark received: n
-2026/05/29 16:25:21 ==== Test name: testPwd, Mark received: 0.00 ====
+2026/05/30 13:33:19 pwd should output: 
+/home/ryleengo/p1/rylesssi/ssi
+2026/05/30 13:33:19 Do you want to award mark for this test? (y/n or input a floating number between [0, 1.00]): 
+2026/05/30 13:33:30 Mark received: y
+2026/05/30 13:33:30 ==== Test name: testPwd, Mark received: 1.00 ====
 
-2026/05/29 16:25:22 [testChangeRelativeDir] Testing changing relative directory, 1.00
-2026/05/29 16:25:22 Sending command to SSI: 
+2026/05/30 13:33:31 [testChangeRelativeDir] Testing changing relative directory, 1.00
+2026/05/30 13:33:31 Sending command to SSI: 
 cd ./temp
 pwd
 
-2026/05/29 16:25:22 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > cd ./temp
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample/temp > pwd
-/home/ryleengo/p1/rylesssi/sample/temp
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample/temp > 
+2026/05/30 13:33:31 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > cd ./temp
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi/temp > pwd
+/home/ryleengo/p1/rylesssi/ssi/temp
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi/temp > 
 
 
-2026/05/29 16:25:22 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.25]): 
-2026/05/29 16:25:41 Mark received: y
-2026/05/29 16:25:41 Sending command to SSI: 
+2026/05/30 13:33:31 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.25]): 
+2026/05/30 13:33:41 Mark received: y
+2026/05/30 13:33:41 Sending command to SSI: 
 cd ./A
 pwd
 
-2026/05/29 16:25:41 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample/temp > cd ./A
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample/temp/A > pwd
-/home/ryleengo/p1/rylesssi/sample/temp/A
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample/temp/A > 
+2026/05/30 13:33:41 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi/temp > cd ./A
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi/temp/A > pwd
+/home/ryleengo/p1/rylesssi/ssi/temp/A
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi/temp/A > 
 
 
-2026/05/29 16:25:41 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.25]): 
-2026/05/29 16:25:58 Mark received: y
-2026/05/29 16:25:58 Sending command to SSI: 
+2026/05/30 13:33:41 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.25]): 
+2026/05/30 13:33:46 Mark received: 
+2026/05/30 13:33:46 Sending command to SSI: 
 cd ../..
 pwd
 
-2026/05/29 16:25:58 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample/temp/A/C > cd ../..
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample/temp > pwd
-/home/ryleengo/p1/rylesssi/sample/temp
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample/temp > 
+2026/05/30 13:33:46 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi/temp/A/C > cd ../..
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi/temp > pwd
+/home/ryleengo/p1/rylesssi/ssi/temp
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi/temp > 
 
 
-2026/05/29 16:25:58 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.25]): 
-2026/05/29 16:27:08 Mark received: y
-2026/05/29 16:27:08 Sending command to SSI: 
+2026/05/30 13:33:46 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.25]): 
+2026/05/30 13:33:47 Mark received: 
+2026/05/30 13:33:47 Sending command to SSI: 
 cd ./D/../..
 pwd
 
-2026/05/29 16:27:08 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample/temp/A/C > cd ./D/../..
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample/temp/A > pwd
-/home/ryleengo/p1/rylesssi/sample/temp/A
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample/temp/A > 
+2026/05/30 13:33:47 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi/temp/A/C > cd ./D/../..
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi/temp/A > pwd
+/home/ryleengo/p1/rylesssi/ssi/temp/A
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi/temp/A > 
 
 
-2026/05/29 16:27:08 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.25]): 
-2026/05/29 16:28:37 Mark received: y
-2026/05/29 16:28:37 ==== Test name: testChangeRelativeDir, Mark received: 1.00 ====
+2026/05/30 13:33:47 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.25]): 
+2026/05/30 13:33:48 Mark received: 
+2026/05/30 13:33:48 ==== Test name: testChangeRelativeDir, Mark received: 0.25 ====
 
-2026/05/29 16:28:38 [testChangeAbsDir] Testing changing absolute directory, 1.00
-2026/05/29 16:28:38 Sending command to SSI: 
+2026/05/30 13:33:49 [testChangeAbsDir] Testing changing absolute directory, 1.00
+2026/05/30 13:33:49 Sending command to SSI: 
 cd /tmp
 pwd
 
-2026/05/29 16:28:38 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > cd /tmp
-ryleengo@linux200: /tmp > pwd
+2026/05/30 13:33:49 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > cd /tmp
+ryleengo@linux201: /tmp > pwd
 /tmp
-ryleengo@linux200: /tmp > 
+ryleengo@linux201: /tmp > 
 
 
-2026/05/29 16:28:38 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 16:32:26 Mark received: y
-2026/05/29 16:32:26 Sending command to SSI: 
+2026/05/30 13:33:49 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:33:53 Mark received: 
+2026/05/30 13:33:53 Sending command to SSI: 
 cd /tmp/../tmp/../tmp/
 pwd
 
-2026/05/29 16:32:26 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > cd /tmp/../tmp/../tmp/
-ryleengo@linux200: /tmp > pwd
+2026/05/30 13:33:53 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > cd /tmp/../tmp/../tmp/
+ryleengo@linux201: /tmp > pwd
 /tmp
-ryleengo@linux200: /tmp > 
+ryleengo@linux201: /tmp > 
 
 
-2026/05/29 16:32:26 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 16:32:45 Mark received: y
-2026/05/29 16:32:45 Sending command to SSI: 
+2026/05/30 13:33:53 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:33:54 Mark received: 
+2026/05/30 13:33:54 Sending command to SSI: 
 cd /
 pwd
 
-2026/05/29 16:32:45 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > cd /
-ryleengo@linux200: / > pwd
+2026/05/30 13:33:54 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > cd /
+ryleengo@linux201: / > pwd
 /
-ryleengo@linux200: / > 
+ryleengo@linux201: / > 
 
 
-2026/05/29 16:32:45 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 16:32:50 Mark received: y
-2026/05/29 16:32:50 Sending command to SSI: 
+2026/05/30 13:33:54 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:33:55 Mark received: 
+2026/05/30 13:33:55 Sending command to SSI: 
 cd /.././
 pwd
 
-2026/05/29 16:32:50 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > cd /.././
-ryleengo@linux200: / > pwd
+2026/05/30 13:33:55 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > cd /.././
+ryleengo@linux201: / > pwd
 /
-ryleengo@linux200: / > 
+ryleengo@linux201: / > 
 
 
-2026/05/29 16:32:50 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 16:33:07 Mark received: y
-2026/05/29 16:33:07 Sending command to SSI: 
+2026/05/30 13:33:55 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:33:56 Mark received: 
+2026/05/30 13:33:56 Sending command to SSI: 
 cd /tmp/nonexisit/
 pwd
 
-2026/05/29 16:33:07 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > cd /tmp/nonexisit/
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > pwd
-/home/ryleengo/p1/rylesssi/sample
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+2026/05/30 13:33:56 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > cd /tmp/nonexisit/
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > pwd
+/home/ryleengo/p1/rylesssi/ssi
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
 
 
-2026/05/29 16:33:07 cd: No such file or directory
+2026/05/30 13:33:56 cd: No such file or directory
 
-2026/05/29 16:33:07 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 16:35:07 Mark received: y
-2026/05/29 16:35:07 ==== Test name: testChangeAbsDir, Mark received: 1.00 ====
+2026/05/30 13:33:56 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:33:57 Mark received: 
+2026/05/30 13:33:57 ==== Test name: testChangeAbsDir, Mark received: 0.00 ====
 
-2026/05/29 16:35:08 [testChangeHomeDir] Testing changing home directory, 1.00
-2026/05/29 16:35:08 Sending command to SSI: 
+2026/05/30 13:33:58 [testChangeHomeDir] Testing changing home directory, 1.00
+2026/05/30 13:33:58 Sending command to SSI: 
 cd /tmp
 pwd
 
-2026/05/29 16:35:08 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > cd /tmp
-ryleengo@linux200: /tmp > pwd
+2026/05/30 13:33:58 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > cd /tmp
+ryleengo@linux201: /tmp > pwd
 /tmp
-ryleengo@linux200: /tmp > 
+ryleengo@linux201: /tmp > 
 
 
-2026/05/29 16:35:08 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 16:35:38 Mark received: y
-2026/05/29 16:35:38 Sending command to SSI: 
+2026/05/30 13:33:58 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:34:00 Mark received: 
+2026/05/30 13:34:00 Sending command to SSI: 
 cd ~
 pwd
 
-2026/05/29 16:35:38 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > cd ~
-ryleengo@linux200: /home/ryleengo > pwd
+2026/05/30 13:34:00 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > cd ~
+ryleengo@linux201: /home/ryleengo > pwd
 /home/ryleengo
-ryleengo@linux200: /home/ryleengo > 
+ryleengo@linux201: /home/ryleengo > 
 
 
-2026/05/29 16:35:38 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 16:35:45 Mark received: y
-2026/05/29 16:35:45 Sending command to SSI: 
+2026/05/30 13:34:00 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:34:01 Mark received: 
+2026/05/30 13:34:01 Sending command to SSI: 
 cd ~/
 pwd
 
-2026/05/29 16:35:45 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > cd ~/
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > pwd
-/home/ryleengo/p1/rylesssi/sample
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+2026/05/30 13:34:01 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > cd ~/
+ryleengo@linux201: /home/ryleengo > pwd
+/home/ryleengo
+ryleengo@linux201: /home/ryleengo > 
 
 
-2026/05/29 16:35:45 cd: No such file or directory
-
-2026/05/29 16:35:45 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 16:39:37 Mark received: n
-2026/05/29 16:39:37 Sending command to SSI: 
+2026/05/30 13:34:01 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:34:01 Mark received: 
+2026/05/30 13:34:01 Sending command to SSI: 
 cd ~/../../
 pwd
 
-2026/05/29 16:39:37 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > cd ~/../../
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > pwd
-/home/ryleengo/p1/rylesssi/sample
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > 
+2026/05/30 13:34:01 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > cd ~/../../
+ryleengo@linux201: / > pwd
+/
+ryleengo@linux201: / > 
 
 
-2026/05/29 16:39:37 cd: No such file or directory
-
-2026/05/29 16:39:37 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 16:41:27 Mark received: n
-2026/05/29 16:41:27 Sending command to SSI: 
+2026/05/30 13:34:01 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:34:02 Mark received: 
+2026/05/30 13:34:02 Sending command to SSI: 
 cd 
 pwd
 
-2026/05/29 16:41:27 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > cd 
-ryleengo@linux200: /home/ryleengo > pwd
+2026/05/30 13:34:02 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > cd 
+ryleengo@linux201: /home/ryleengo > pwd
 /home/ryleengo
-ryleengo@linux200: /home/ryleengo > 
+ryleengo@linux201: /home/ryleengo > 
 
 
-2026/05/29 16:41:27 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
-2026/05/29 16:41:33 Mark received: y
-2026/05/29 16:41:33 ==== Test name: testChangeHomeDir, Mark received: 0.60 ====
+2026/05/30 13:34:02 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2026/05/30 13:34:03 Mark received: 
+2026/05/30 13:34:03 ==== Test name: testChangeHomeDir, Mark received: 0.00 ====
 
-2026/05/29 16:41:34 [testPromptCorrect] Testing prompt is correct, 1.00
-2026/05/29 16:41:34 Among all the above changing directory tests, does the prompt always show the correct cwd after each `cd` command?
-2026/05/29 16:41:34 Do you want to award mark for this test? (y/n or input a floating number between [0, 1.00]): 
-2026/05/29 16:42:00 Mark received: y
-2026/05/29 16:42:00 ==== Test name: testPromptCorrect, Mark received: 1.00 ====
+2026/05/30 13:34:04 [testPromptCorrect] Testing prompt is correct, 1.00
+2026/05/30 13:34:04 Among all the above changing directory tests, does the prompt always show the correct cwd after each `cd` command?
+2026/05/30 13:34:04 Do you want to award mark for this test? (y/n or input a floating number between [0, 1.00]): 
+2026/05/30 13:34:09 Mark received: 
+2026/05/30 13:34:09 ==== Test name: testPromptCorrect, Mark received: 0.00 ====
 
-2026/05/29 16:42:01 [testBgPing] Testing `bg` command with `ping`, 5.00
-2026/05/29 16:42:01 Please wait for around 15 seconds
-2026/05/29 16:42:01 [COMMAND]: /home/ryleengo/p1/rylesssi/sample/ssi
-2026/05/29 16:42:01 Sending command to SSI: bg ping -c 5 1.1.1.1
-2026/05/29 16:42:01 Sending command to SSI: bg ping -c 10 8.8.8.8
-2026/05/29 16:42:01 Sending command to SSI: bglist  
-2026/05/29 16:42:01 Sending command to SSI: sleep 5 
-2026/05/29 16:42:01 Sending command to SSI: bglist  
-2026/05/29 16:42:01 Sending command to SSI: sleep 5 
-2026/05/29 16:42:01 Sending command to SSI: bglist  
-2026/05/29 16:42:11 ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > bg ping -c 5 1.1.1.1
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > bg ping -c 10 8.8.8.8
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > bglist  
-2543752: ping -c 10 8.8.8.8
-2543751: ping -c 5 1.1.1.1
+2026/05/30 13:34:10 [testBgPing] Testing `bg` command with `ping`, 5.00
+2026/05/30 13:34:10 Please wait for around 15 seconds
+2026/05/30 13:34:10 [COMMAND]: /home/ryleengo/p1/rylesssi/ssi/ssi
+2026/05/30 13:34:10 Sending command to SSI: bg ping -c 5 1.1.1.1
+2026/05/30 13:34:10 Sending command to SSI: bg ping -c 10 8.8.8.8
+2026/05/30 13:34:10 Sending command to SSI: bglist  
+2026/05/30 13:34:10 Sending command to SSI: sleep 5 
+2026/05/30 13:34:10 Sending command to SSI: bglist  
+2026/05/30 13:34:10 Sending command to SSI: sleep 5 
+2026/05/30 13:34:10 Sending command to SSI: bglist  
+2026/05/30 13:34:20 ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > bg ping -c 5 1.1.1.1
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > bg ping -c 10 8.8.8.8
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > bglist  
+1351000: ping -c 10 8.8.8.8
+1350999: ping -c 5 1.1.1.1
 Total background jobs: 2
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > sleep 5 
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > sleep 5 
 PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
-64 bytes from 1.1.1.1: icmp_seq=1 ttl=53 time=3.11 ms
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=53 time=3.22 ms
 PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
-64 bytes from 8.8.8.8: icmp_seq=1 ttl=111 time=6.72 ms
-64 bytes from 1.1.1.1: icmp_seq=2 ttl=53 time=3.20 ms
-64 bytes from 8.8.8.8: icmp_seq=2 ttl=111 time=6.75 ms
-64 bytes from 1.1.1.1: icmp_seq=3 ttl=53 time=3.18 ms
-64 bytes from 8.8.8.8: icmp_seq=3 ttl=111 time=6.59 ms
-64 bytes from 1.1.1.1: icmp_seq=4 ttl=53 time=3.14 ms
-64 bytes from 8.8.8.8: icmp_seq=4 ttl=111 time=6.70 ms
-64 bytes from 1.1.1.1: icmp_seq=5 ttl=53 time=3.28 ms
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=111 time=6.74 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=53 time=3.32 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=111 time=6.73 ms
+64 bytes from 1.1.1.1: icmp_seq=3 ttl=53 time=3.26 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=111 time=6.93 ms
+64 bytes from 1.1.1.1: icmp_seq=4 ttl=53 time=3.07 ms
+64 bytes from 8.8.8.8: icmp_seq=4 ttl=111 time=6.66 ms
+64 bytes from 1.1.1.1: icmp_seq=5 ttl=53 time=3.10 ms
 
 --- 1.1.1.1 ping statistics ---
-5 packets transmitted, 5 received, 0% packet loss, time 4005ms
-rtt min/avg/max/mdev = 3.114/3.182/3.275/0.056 ms
-64 bytes from 8.8.8.8: icmp_seq=5 ttl=111 time=6.73 ms
-2543751: ping -c 5 1.1.1.1 has terminated.
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > bglist  
-2543752: ping -c 10 8.8.8.8
+5 packets transmitted, 5 received, 0% packet loss, time 4006ms
+rtt min/avg/max/mdev = 3.074/3.196/3.323/0.095 ms
+64 bytes from 8.8.8.8: icmp_seq=5 ttl=111 time=6.96 ms
+1350999: ping -c 5 1.1.1.1 has terminated.
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > bglist  
+1351000: ping -c 10 8.8.8.8
 Total background jobs: 1
-ryleengo@linux200: /home/ryleengo/p1/rylesssi/sample > sleep 5 
-64 bytes from 8.8.8.8: icmp_seq=6 ttl=111 time=6.93 ms
-64 bytes from 8.8.8.8: icmp_seq=7 ttl=111 time=6.85 ms
-64 bytes from 8.8.8.8: icmp_seq=8 ttl=111 time=6.96 ms
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > sleep 5 
+64 bytes from 8.8.8.8: icmp_seq=6 ttl=111 time=6.87 ms
+64 bytes from 8.8.8.8: icmp_seq=7 ttl=111 time=6.92 ms
+64 bytes from 8.8.8.8: icmp_seq=8 ttl=111 time=7.06 ms
+64 bytes from 8.8.8.8: icmp_seq=9 ttl=111 time=6.89 ms
+64 bytes from 8.8.8.8: icmp_seq=10 ttl=111 time=6.80 ms
+
+--- 8.8.8.8 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9016ms
+rtt min/avg/max/mdev = 6.660/6.858/7.057/0.115 ms
+1351000: ping -c 10 8.8.8.8 has terminated.
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > bglist  
+Total background jobs: 0
+ryleengo@linux201: /home/ryleengo/p1/rylesssi/ssi > 
+
+
+2026/05/30 13:34:20 Do you want to award mark for this test? (y/n or input a floating number between [0, 5.00]): 
+2026/05/30 13:34:33 Mark received: y
+2026/05/30 13:34:33 ==== Test name: testBgPing, Mark received: 5.00 ====
+
+2026/05/30 13:34:34 
+==== Final Grade: 10.000000====
+ms
 64 bytes from 8.8.8.8: icmp_seq=9 ttl=111 time=6.91 ms
 64 bytes from 8.8.8.8: icmp_seq=10 ttl=111 time=6.80 ms
 
